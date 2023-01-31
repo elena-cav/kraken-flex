@@ -1,4 +1,4 @@
-import { retrieveOutages } from ".";
+import { retrieveOutages, retrieveSiteInfoByID } from ".";
 import axios from "axios";
 jest.mock("axios");
 
@@ -24,13 +24,32 @@ describe("Retrieve Outages", () => {
 
   test("Throws error if url if bad url is passed", async () => {
     (axios.get as jest.Mock).mockRejectedValueOnce("error");
-    jest.spyOn(axios, "get").mockRejectedValue(new Error("error"));
     await expect(retrieveOutages(badUrl)).rejects.toThrow("error");
   });
 });
 
 describe("Retrieve site info by ID", () => {
-  test("first", () => {});
+  test("Successfully retrieves outages if url is correct", async () => {
+    const siteInfo = {
+      id: "norwich-pear-tree",
+      name: "Norwich Pear Tree",
+      devices: [
+        { id: "111183e7-fb90-436b-9951-63392b36bdd2", name: "Battery 1" },
+      ],
+    };
+    const resp = { data: siteInfo };
+    (axios.get as jest.Mock).mockResolvedValue(resp);
+    return retrieveSiteInfoByID(baseUrl, "norwich-pear-tree").then((data) =>
+      expect(data).toEqual(siteInfo)
+    );
+  });
+
+  test("Throws error if url if bad url is passed", async () => {
+    (axios.get as jest.Mock).mockRejectedValueOnce("error");
+    await expect(
+      retrieveSiteInfoByID(badUrl, "norwich-pear-tree")
+    ).rejects.toThrow("error");
+  });
 });
 
 describe("Filter outages", () => {
