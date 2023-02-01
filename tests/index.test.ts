@@ -6,7 +6,7 @@ const axiosPostMock = jest.spyOn(axios, "post");
 const baseUrl: string =
   "https://api.krakenflex.systems/interview-tests-mock-api/v1";
 
-describe.skip("Filter outages", () => {
+describe("Filter outages", () => {
   const filterSpy = jest.spyOn(filterFoundOutages, "filterOutages");
 
   test("Should receive a success message if posted outages are correct", async () => {

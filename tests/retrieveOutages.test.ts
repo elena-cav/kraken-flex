@@ -3,8 +3,7 @@ const axiosGetMock = jest.spyOn(axios, "get");
 import * as findOutages from "../helpers/retrieveOutages";
 const { retrieveOutages } = findOutages;
 
-const baseUrl: string =
-  "https://api.krakenflex.systems/interview-tests-mock-api/v1";
+const baseUrl: string = "https://api.test.com";
 const badUrl: string = "https://flex.systems/interview-tests-mock-api/v1";
 
 describe("Retrieve Outages", () => {

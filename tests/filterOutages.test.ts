@@ -6,9 +6,8 @@ import * as findSiteInfo from "../helpers/retrieveSiteInfoById";
 
 const baseUrl: string =
   "https://api.krakenflex.systems/interview-tests-mock-api/v1";
-const badUrl: string = "https://flex.systems/interview-tests-mock-api/v1";
 
-describe.skip("Filter outages", () => {
+describe("Filter outages", () => {
   const outagesSpy = jest.spyOn(findOutages, "retrieveOutages");
   const siteInfoSpy = jest.spyOn(findSiteInfo, "retrieveSiteInfoByID");
 
