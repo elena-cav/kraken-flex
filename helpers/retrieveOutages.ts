@@ -1,6 +1,6 @@
 import axios from "axios";
 import { load } from "ts-dotenv";
-import { SiteInfo } from "./types";
+import { Outage } from "../types";
 const env = load({
   API_KEY: String,
 });
@@ -11,12 +11,9 @@ const config = {
   },
 };
 
-export const retrieveSiteInfoByID = async (baseUrl: string, id: string) => {
+export const retrieveOutages = async (baseUrl: string) => {
   try {
-    const { data } = await axios.get<SiteInfo>(
-      `${baseUrl}/site-info/${id}`,
-      config
-    );
+    const { data } = await axios.get<Outage[]>(`${baseUrl}/outages`, config);
     return data;
   } catch ({ response }) {
     const message = response.data.message;
