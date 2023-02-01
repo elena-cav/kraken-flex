@@ -1,4 +1,4 @@
-import { postOutages } from "..";
+import { postOutages } from "../helpers/postOutages";
 import * as filterFoundOutages from "../helpers/filterOutages";
 import axios from "axios";
 const axiosPostMock = jest.spyOn(axios, "post");
