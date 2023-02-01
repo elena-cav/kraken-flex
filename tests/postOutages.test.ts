@@ -41,4 +41,12 @@ describe("Filter outages", () => {
       "error"
     );
   });
+  test("Throws 500 error if server error occurs", async () => {
+    axiosPostMock.mockRejectedValueOnce({
+      response: { data: { message: "Server error" }, status: 500 },
+    });
+    await expect(postOutages(baseUrl, "norwich-pear-tree")).rejects.toThrow(
+      "Server error"
+    );
+  });
 });

@@ -24,8 +24,17 @@ describe("Retrieve site info by ID", () => {
   });
 
   test("Throws error if url if bad url is passed", async () => {
-    (axios.get as jest.Mock).mockRejectedValueOnce({
+    axiosGetMock.mockRejectedValueOnce({
       response: { data: { message: "error" }, status: 400 },
+    });
+    await expect(
+      retrieveSiteInfoByID(badUrl, "norwich-pear-tree")
+    ).rejects.toThrow("error");
+  });
+
+  test("Throws 500 error if server error occurs", async () => {
+    axiosGetMock.mockRejectedValueOnce({
+      response: { data: { message: "Server error" }, status: 500 },
     });
     await expect(
       retrieveSiteInfoByID(badUrl, "norwich-pear-tree")

@@ -23,10 +23,17 @@ describe("Retrieve Outages", () => {
     );
   });
 
-  test("Throws error if url if bad url is passed", async () => {
+  test("Throws 500 error if server error occurs", async () => {
     axiosGetMock.mockRejectedValueOnce({
       response: { data: { message: "error" }, status: 400 },
     });
     await expect(retrieveOutages(badUrl)).rejects.toThrow("error");
+  });
+
+  test("Throws error if url if bad url is passed", async () => {
+    axiosGetMock.mockRejectedValueOnce({
+      response: { data: { message: "Server error" }, status: 500 },
+    });
+    await expect(retrieveOutages(baseUrl)).rejects.toThrow("Server error");
   });
 });
