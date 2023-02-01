@@ -11,7 +11,7 @@ const config = {
   },
 };
 
-const retrieveOutages = async (baseUrl: string) => {
+export const retrieveOutages = async (baseUrl: string) => {
   try {
     const { data } = await axios.get<Outage[]>(`${baseUrl}/outages`, config);
     return data;
@@ -21,5 +21,3 @@ const retrieveOutages = async (baseUrl: string) => {
     throw new Error(`Status code ${status}: ${message}`);
   }
 };
-
-export default retrieveOutages;

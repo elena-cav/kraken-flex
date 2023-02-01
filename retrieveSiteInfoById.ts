@@ -11,7 +11,7 @@ const config = {
   },
 };
 
-const retrieveSiteInfoByID = async (baseUrl: string, id: string) => {
+export const retrieveSiteInfoByID = async (baseUrl: string, id: string) => {
   try {
     const { data } = await axios.get<SiteInfo>(
       `${baseUrl}/site-info/${id}`,
@@ -24,5 +24,3 @@ const retrieveSiteInfoByID = async (baseUrl: string, id: string) => {
     throw new Error(`Status code ${status}: ${message}`);
   }
 };
-
-export default retrieveSiteInfoByID;
