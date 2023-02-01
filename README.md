@@ -8,7 +8,7 @@ More specifically:
 - `retrieveSiteInfoById` retrieves information from the `GET /site-info/{siteId}` endpoint for the site with the ID `norwich-pear-tree`
 - `filterOutages` filters out any outages that began before `2022-01-01T00:00:00.000Z` or don't have an ID that is in the list of
   devices in the site information. For the remaining outages, it attaches the display name of the device in the site information to each appropriate outage
-- `postOutages` (index.ts) sends this list of outages to `POST /site-outages/{siteId}` for the site with the ID `norwich-pear-tree`
+- `postOutages` sends this list of outages to `POST /site-outages/{siteId}` for the site with the ID `norwich-pear-tree`
 
 ## Testing
 
