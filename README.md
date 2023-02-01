@@ -1,6 +1,6 @@
 # KrakenFlex Back End Test
 
-The application is aimed at retrieving outages and site-info from an KrakenFlex API endpoint, and post the filtered outages to the API.
+The application is aimed at retrieving outages and site-info from an KrakenFlex API endpoint, and post the filtered and enhanced outages to the API.
 
 More specifically:
 
