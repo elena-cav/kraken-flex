@@ -1,8 +1,6 @@
 import { filterOutages } from "../helpers/filterOutages";
 import * as findOutages from "../helpers/retrieveOutages";
 import * as findSiteInfo from "../helpers/retrieveSiteInfoById";
-// const axiosGetMock = jest.spyOn(axios, "get");
-// const axiosPostMock = jest.spyOn(axios, "post");
 
 const baseUrl: string =
   "https://api.krakenflex.systems/interview-tests-mock-api/v1";
